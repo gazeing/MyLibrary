@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.GridLayoutAnimationController;
 
 /**
- * Created by Steven on 20/04/2015.
+ * Created by Steven on 21/04/2015.
  */
 public class MyRecyclerView extends RecyclerView {
 

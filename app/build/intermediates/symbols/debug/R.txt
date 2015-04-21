@@ -383,7 +383,8 @@ int drawable album_6 0x7f02003d
 int drawable drawer_shadow 0x7f02003e
 int drawable ic_drawer 0x7f02003f
 int drawable ic_star 0x7f020040
-int drawable menu 0x7f020041
+int drawable ic_star_white 0x7f020041
+int drawable menu 0x7f020042
 int id action_bar 0x7f090031
 int id action_bar_activity_content 0x7f090000
 int id action_bar_container 0x7f090030

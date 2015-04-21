@@ -2,7 +2,7 @@
     android:animation="@anim/slide_in_bottom"
     android:directionPriority="row"
     android:delay="1.5"
-    android:columnDelay="35%"
+    android:columnDelay="10%"
     android:rowDelay="85%"
     android:direction="right_to_left|top_to_bottom"
     android:interpolator="@android:interpolator/linear"

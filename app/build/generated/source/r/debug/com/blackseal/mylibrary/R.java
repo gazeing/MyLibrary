@@ -1349,7 +1349,8 @@ containing a value of this type.
         public static final int drawer_shadow=0x7f02003e;
         public static final int ic_drawer=0x7f02003f;
         public static final int ic_star=0x7f020040;
-        public static final int menu=0x7f020041;
+        public static final int ic_star_white=0x7f020041;
+        public static final int menu=0x7f020042;
     }
     public static final class id {
         public static final int action_bar=0x7f090031;

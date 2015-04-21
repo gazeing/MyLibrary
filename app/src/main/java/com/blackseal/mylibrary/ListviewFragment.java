@@ -8,13 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Steven on 20/04/2015.
+ * Created by Steven on 21/04/2015.
  */
 public class ListviewFragment extends Fragment {
 
@@ -39,6 +40,8 @@ public class ListviewFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
 
+
+
         List<Album> list = new ArrayList<Album>();
         list.add(new Album(R.drawable.album_1,"In a Perfect World","Kodaline"));
         list.add(new Album(R.drawable.album_2,"More Than Just A Dream","Fitz & The Tantrums"));
@@ -51,17 +54,39 @@ public class ListviewFragment extends Fragment {
         adapter = new MyAdapter(getActivity(),list);
         recyclerView.setAdapter(adapter);
 
+
+        recyclerView.setLayoutAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                adapter.changeAllColor();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
         return rootView;
 
     }
 
     public void refresh(){
-        recyclerView.removeAllViews();
+
+        while (recyclerView.getAdapter().getItemCount()>0) {
+            ((MyAdapter) recyclerView.getAdapter()).removeAt(0);
+        }
 
 
-        recyclerView.invalidate();
 
-        recyclerView.setAdapter(adapter);
+
+//        recyclerView.setAdapter(adapter);
 
 
     }
