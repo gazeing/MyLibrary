@@ -49,7 +49,8 @@ public class NumberedAdapter extends RecyclerView.Adapter<NumberedAdapter.TextVi
                         holder.textView.getContext(), label, Toast.LENGTH_SHORT).show();
             }
         });
-        setAnimation(holder.container, position);
+//        setAnimation(holder.container, position);
+
 
     }
 

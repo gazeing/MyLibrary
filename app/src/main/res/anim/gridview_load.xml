@@ -1,0 +1,9 @@
+<gridLayoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/slide_in_bottom"
+    android:directionPriority="row"
+    android:delay="1.5"
+    android:columnDelay="35%"
+    android:rowDelay="85%"
+    android:direction="right_to_left|top_to_bottom"
+    android:interpolator="@android:interpolator/linear"
+    />
