@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
 
@@ -37,7 +38,11 @@ public class ListviewFragment extends Fragment {
                 R.id.recycler_view));
         recyclerView.addItemDecoration(new MarginDecoration(getActivity()));
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        int orientation = getResources().getConfiguration().orientation;
+        int spanCount = (orientation== getResources().getConfiguration().ORIENTATION_PORTRAIT)?2:3;
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), spanCount));
+
+
 
 
 

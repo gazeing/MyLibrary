@@ -5,6 +5,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -52,11 +54,25 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
         holder.imageview.setImageResource(album.getImageDrawableId());
 
 
-
+        changeLayoutSize(holder);
 
         changeHolderColor(holder, position);
 
 
+    }
+
+    private void changeLayoutSize(AlbumViewHolder holder) {
+
+        int orientation = mContext.getResources().getConfiguration().orientation;
+        int spanCount = (orientation== mContext.getResources().getConfiguration().ORIENTATION_PORTRAIT)?2:3;
+
+        DisplayMetrics displayMetrics = mContext.getResources().getDisplayMetrics();
+
+       float pxWidth = displayMetrics.widthPixels;
+
+       int pxLayoutWidth = (int)(pxWidth-(spanCount-1)*2)/spanCount;
+        holder.imageview.setLayoutParams(new LinearLayout.LayoutParams(pxLayoutWidth,pxLayoutWidth));
+        holder.text_container.setLayoutParams(new LinearLayout.LayoutParams(pxLayoutWidth, LinearLayout.LayoutParams.WRAP_CONTENT));
     }
 
 
