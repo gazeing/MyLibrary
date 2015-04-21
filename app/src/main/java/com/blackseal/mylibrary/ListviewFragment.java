@@ -38,6 +38,8 @@ public class ListviewFragment extends Fragment {
                 R.id.recycler_view));
         recyclerView.addItemDecoration(new MarginDecoration(getActivity()));
         recyclerView.setHasFixedSize(true);
+        // Because we only have 6 pictures in total, I haven't implement dynamic span count here.
+        // Just simply define 2 items in a row when portrait / 3 items when landscape.
         int orientation = getResources().getConfiguration().orientation;
         int spanCount = (orientation== getResources().getConfiguration().ORIENTATION_PORTRAIT)?2:3;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), spanCount));
