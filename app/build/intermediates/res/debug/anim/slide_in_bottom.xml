@@ -5,4 +5,4 @@
         android:duration="@android:integer/config_mediumAnimTime"/>
     <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
         android:duration="@android:integer/config_longAnimTime" />
-</set><!-- From: file:/C:/steven/demo/MyLibrary/app/src/main/res/anim/slide_in_bottom.xml -->
+</set><!-- From: file:/steven/work/projects/MyLibrary/app/src/main/res/anim/slide_in_bottom.xml -->
