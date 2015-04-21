@@ -2,15 +2,15 @@ package com.blackseal.mylibrary;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
+
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+
 import android.view.animation.Animation;
-import android.view.animation.LayoutAnimationController;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +46,7 @@ public class ListviewFragment extends Fragment {
 
 
 
+        //create data set
 
         List<Album> list = new ArrayList<Album>();
         list.add(new Album(R.drawable.album_1,"In a Perfect World","Kodaline"));
@@ -60,6 +61,7 @@ public class ListviewFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
+        //set animation listener to add color after loading finish
         recyclerView.setLayoutAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -84,15 +86,7 @@ public class ListviewFragment extends Fragment {
 
     public void refresh(){
 
-        while (recyclerView.getAdapter().getItemCount()>0) {
-            ((MyAdapter) recyclerView.getAdapter()).removeAt(0);
-        }
-
-
-
-
-//        recyclerView.setAdapter(adapter);
-
+       //implement refresh function here
 
     }
 }

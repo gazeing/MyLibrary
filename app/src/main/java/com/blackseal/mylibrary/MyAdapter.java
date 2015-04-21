@@ -3,14 +3,14 @@ package com.blackseal.mylibrary;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
+
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
+
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,6 +60,10 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
 
 
     }
+    /*
+     * Dynamically get screen size and calculate
+     * layout size.
+     */
 
     private void changeLayoutSize(AlbumViewHolder holder) {
 
@@ -70,7 +74,7 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
 
        float pxWidth = displayMetrics.widthPixels;
 
-       int pxLayoutWidth = (int)(pxWidth-(spanCount-1)*2)/spanCount;
+       int pxLayoutWidth = (int)(pxWidth-(spanCount-mContext.getResources().getDimensionPixelSize(R.dimen.item_margin))*2)/spanCount;
         holder.imageview.setLayoutParams(new LinearLayout.LayoutParams(pxLayoutWidth,pxLayoutWidth));
         holder.text_container.setLayoutParams(new LinearLayout.LayoutParams(pxLayoutWidth, LinearLayout.LayoutParams.WRAP_CONTENT));
     }
@@ -82,19 +86,18 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
         return mList.size();
     }
 
-    public void removeAt(int position) {
-        mList.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, mList.size());
-    }
+
 
     public void changeAllColor() {
 
         isLoaded = true;
-        notifyDataSetChanged();
+        notifyDataSetChanged(); //after the slide-in animation finish,
+                                //refresh list to add color label
 
 
     }
+
+
     private void changeHolderColor(AlbumViewHolder holder, int position) {
 
 
@@ -124,7 +127,7 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
 
             Drawable icon_star = mContext.getResources().getDrawable(R.drawable.ic_star_white);
 
-            icon_star.mutate().setColorFilter(colorText, PorterDuff.Mode.MULTIPLY);
+            icon_star.mutate().setColorFilter(colorText, PorterDuff.Mode.MULTIPLY); //add text color to star icon
 
             holder.textViewTitle.setTextColor(colorText);
             holder.textViewAuthor.setTextColor(colorText);
