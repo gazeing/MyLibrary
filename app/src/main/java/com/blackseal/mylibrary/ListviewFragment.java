@@ -10,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LayoutAnimationController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Steven on 20/04/2015.
  */
 public class ListviewFragment extends Fragment {
 
     MyRecyclerView recyclerView;
+    MyAdapter adapter;
 
     public ListviewFragment(){
 
@@ -33,17 +37,32 @@ public class ListviewFragment extends Fragment {
         recyclerView.addItemDecoration(new MarginDecoration(getActivity()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-//     /   recyclerView.setLayoutAnimation(new LayoutAnimationController(getActivity(),new Animation,));
-//        recyclerView.setItemAnimator(new SlideInOutBottomItemAnimator(recyclerView));
-        recyclerView.setAdapter(new NumberedAdapter(30,getActivity()));
 
+
+        List<Album> list = new ArrayList<Album>();
+        list.add(new Album(R.drawable.album_1,"In a Perfect World","Kodaline"));
+        list.add(new Album(R.drawable.album_2,"More Than Just A Dream","Fitz & The Tantrums"));
+        list.add(new Album(R.drawable.album_3,"Jamie Lidell","Jamie Lidell"));
+        list.add(new Album(R.drawable.album_4,"Nocturnal","Yuna"));
+        list.add(new Album(R.drawable.album_5,"BLACK SANDS","BONOBO"));
+        list.add(new Album(R.drawable.album_6,"GIRL","WHATEVER"));
+
+
+        adapter = new MyAdapter(getActivity(),list);
+        recyclerView.setAdapter(adapter);
 
         return rootView;
 
     }
 
     public void refresh(){
-        recyclerView.setAdapter(new NumberedAdapter(30,getActivity()));
+        recyclerView.removeAllViews();
+
+
         recyclerView.invalidate();
+
+        recyclerView.setAdapter(adapter);
+
+
     }
 }

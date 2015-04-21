@@ -3,7 +3,8 @@
      android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#000000">
 
     <com.blackseal.mylibrary.MyRecyclerView
         android:id="@+id/recycler_view"

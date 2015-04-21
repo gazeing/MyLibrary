@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blurcolor">#ffffffff</color>
+    <color name="orange">#EE4729</color>
+    <color name="purple">#9F29EE</color>
+    <color name="pink">#EE29D7</color>
+    <color name="blue">#3629EE</color>
+    <color name="green">#24770D</color>
+    <color name="pink_dark">#590D77</color>
+    <color name="orange_dark">#77290D</color>
+    <color name="blue_dark">#0D2277</color>
+    <color name="yellow">#EAE320</color>
+    <color name="blue_sky">#20AAEA</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gray">#bebebe</color>
+    <color name="light_gray">#dbdbdb</color>
+    <color name="dark_gray">#272828</color>
+    <color name="dim_gray">#696969</color>
+
+
+    <color name="album1">#4AB6AF</color>
+    <color name="text1">#1E5960</color>
+    <color name="album2">#FF3A84</color>
+    <color name="text2">#FFFFFF</color>
+    <color name="album4">#FFEC00</color>
+    <color name="text4">#826600</color>
+</resources>
