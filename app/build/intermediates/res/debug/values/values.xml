@@ -238,7 +238,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="title_section1">TEST DEMO</string>
-    <string name="title_section2">BUILT BY</string>
+    <string name="title_section2">WRITTENS BY</string>
     <string name="title_section3">STEVE XU</string>
     <!-- From: file:/C:/steven/demo/MyLibrary/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values/values.xml -->
     <eat-comment/>

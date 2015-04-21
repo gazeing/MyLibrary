@@ -25,10 +25,13 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
 
     Context mContext;
     List<Album> mList;
+    Boolean isLoaded;
 
     public MyAdapter(Context context, List<Album> list){
         this.mList = new ArrayList<Album>(list);
         this.mContext = context;
+
+        isLoaded = false;
     }
 
     @Override
@@ -71,38 +74,48 @@ public class MyAdapter  extends RecyclerView.Adapter<MyAdapter.AlbumViewHolder> 
 
     public void changeAllColor() {
 
+        isLoaded = true;
+        notifyDataSetChanged();
 
-        Log.i("animation", "changeAllColor");
+
     }
     private void changeHolderColor(AlbumViewHolder holder, int position) {
 
-        int colorText = mContext.getResources().getColor(R.color.text1);
-        int colorBackground = mContext.getResources().getColor(R.color.album1);
 
-        switch (position%4){
-            case 0:{
-                colorText = mContext.getResources().getColor(R.color.text1);
-                colorBackground = mContext.getResources().getColor(R.color.album1);
-            }break;
-            case 1:
-            case 2:{
-                colorText = mContext.getResources().getColor(R.color.text2);
-                colorBackground = mContext.getResources().getColor(R.color.album2);
-            }break;
-            case 3:{
-                colorText = mContext.getResources().getColor(R.color.text4);
-                colorBackground = mContext.getResources().getColor(R.color.album4);
-            }break;
+        if (isLoaded) {
+
+            int colorText = mContext.getResources().getColor(R.color.text1);
+            int colorBackground = mContext.getResources().getColor(R.color.album1);
+
+            switch (position % 4) {
+                case 0: {
+                    colorText = mContext.getResources().getColor(R.color.text1);
+                    colorBackground = mContext.getResources().getColor(R.color.album1);
+                }
+                break;
+                case 1:
+                case 2: {
+                    colorText = mContext.getResources().getColor(R.color.text2);
+                    colorBackground = mContext.getResources().getColor(R.color.album2);
+                }
+                break;
+                case 3: {
+                    colorText = mContext.getResources().getColor(R.color.text4);
+                    colorBackground = mContext.getResources().getColor(R.color.album4);
+                }
+                break;
+            }
+
+            Drawable icon_star = mContext.getResources().getDrawable(R.drawable.ic_star_white);
+
+            icon_star.mutate().setColorFilter(colorText, PorterDuff.Mode.MULTIPLY);
+
+            holder.textViewTitle.setTextColor(colorText);
+            holder.textViewAuthor.setTextColor(colorText);
+            holder.text_container.setBackgroundColor(colorBackground);
+            holder.star.setImageDrawable(icon_star);
+
         }
-
-        Drawable icon_star = mContext.getResources().getDrawable(R.drawable.ic_star_white);
-
-        icon_star.mutate().setColorFilter( colorText, PorterDuff.Mode.MULTIPLY);
-
-        holder.textViewTitle.setTextColor(colorText);
-        holder.textViewAuthor.setTextColor(colorText);
-        holder.text_container.setBackgroundColor(colorBackground);
-        holder.star.setImageDrawable(icon_star);
     }
 
     public static class AlbumViewHolder extends RecyclerView.ViewHolder  {
